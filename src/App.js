@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MainPage from "./components/MainPage.jsx";
+import { Grid, createTheme, ThemeProvider, Container } from "@material-ui/core";
 
-function App() {
+const theme = createTheme({
+  pallette: {
+    primary: {
+      main: "fcb865",
+    },
+    secondary: {
+      main: "fcb865",
+    },
+  },
+  typography: {
+    fontFamily: "Roboto",
+  },
+});
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg" className="App">
+      <ThemeProvider theme={theme}>
+        <Grid container spacing={5}>
+          <Grid item xs={12}>
+            <MainPage />
+          </Grid>
+        </Grid>
+      </ThemeProvider>
+    </Container>
   );
 }
-
-export default App;
