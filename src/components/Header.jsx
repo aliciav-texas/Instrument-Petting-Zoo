@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AppBar, Toolbar, IconButton, Typography, Grid } from "@mui/material";
 // === Icons
 import QueueMusicIcon from "@mui/icons-material/QueueMusic";
@@ -17,7 +18,9 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <QueueMusicIcon />
+            <Link to="/">
+              <QueueMusicIcon />
+            </Link>
           </IconButton>
           <Grid item xs={8}>
             <Typography variant="h3" color="inherit" component="div">
@@ -30,7 +33,9 @@ export default function Header() {
                 <Typography> Add a student</Typography>
               </Grid>
               <Grid item>
-                <PersonAddIcon />
+                <Link to="/studentInterest">
+                  <PersonAddIcon />
+                </Link>
               </Grid>
             </Grid>
           </Grid>
@@ -40,17 +45,21 @@ export default function Header() {
                 <Typography> Assess </Typography>
               </Grid>
               <Grid item>
-                <AssignmentOutlinedIcon />
+                <Link to="/instrumentAssesment">
+                  <AssignmentOutlinedIcon />
+                </Link>
               </Grid>
             </Grid>
           </Grid>
           <Grid item={1}>
             <Grid container direction="column" alignItems="center">
               <Grid item>
-                <Typography> Check Out </Typography>
+                <Typography> Director </Typography>
               </Grid>
               <Grid item>
-                <MusicNoteOutlinedIcon />
+                <Link to="/director-sign-In">
+                  <MusicNoteOutlinedIcon />
+                </Link>
               </Grid>
             </Grid>
           </Grid>
