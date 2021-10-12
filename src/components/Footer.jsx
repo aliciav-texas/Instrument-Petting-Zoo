@@ -29,7 +29,7 @@ export default function Footer(props) {
           color="text.secondary"
           component="p"
         >
-          Welcome to the family!
+          Welcome to the band family!
         </Typography>
         <Copyright />
       </Container>
