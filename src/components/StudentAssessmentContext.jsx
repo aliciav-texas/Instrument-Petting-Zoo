@@ -11,6 +11,17 @@ export const StudentAssessmentProvider = (props) => {
   const [writtenInstrumentFeedback, setWrittenInstrumentFeedback] =
     useState("");
 
+  const submitStudentInstrumentAssessment = () => {
+    console.log(
+      "final submit",
+      assessedStudent,
+      instrumentOfAssesment,
+      directorOfAssesment,
+      instrumentScore,
+      writtenInstrumentFeedback
+    );
+  };
+
   return (
     <AssessmentContext.Provider
       value={{
@@ -25,6 +36,7 @@ export const StudentAssessmentProvider = (props) => {
           writtenInstrumentFeedback,
           setWrittenInstrumentFeedback,
         ],
+        submitAssessment: [submitStudentInstrumentAssessment],
       }}
     >
       {props.children}

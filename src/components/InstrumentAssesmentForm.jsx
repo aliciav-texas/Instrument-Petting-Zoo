@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { StudentAssessmentProvider } from "./StudentAssessmentContext.jsx";
-import SelectStudent from "./AssesmentForm/SelectStudent.jsx";
-import InstrumentList from "./AssesmentForm/InstrumentList.jsx";
-import TesterName from "./AssesmentForm/TesterName.jsx";
-import InstrumentScore from "./AssesmentForm/InstrumentScore.jsx";
-import StudentFeedback from "./AssesmentForm/StudentFeedback.jsx";
 
+import SelectStudent from "./AssessmentForm/SelectStudent.jsx";
+import InstrumentList from "./AssessmentForm/InstrumentList.jsx";
+import TesterName from "./AssessmentForm/TesterName.jsx";
+import InstrumentScore from "./AssessmentForm/InstrumentScore.jsx";
+import StudentFeedback from "./AssessmentForm/StudentFeedback.jsx";
+import SubmitAssessmentButton from "./AssessmentForm/SubmitAssessmentButton.jsx";
 import {
   Avatar,
   Button,
@@ -17,7 +18,6 @@ import {
 } from "@mui/material";
 
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
@@ -63,15 +63,8 @@ export default function StudentInterestForm() {
               <TesterName />
               <InstrumentScore />
               <StudentFeedback />
+              <SubmitAssessmentButton />
             </StudentAssessmentProvider>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Submit
-            </Button>
           </Box>
         </Box>
       </Container>
