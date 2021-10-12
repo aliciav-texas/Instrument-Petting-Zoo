@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useContext, useEffect } from "react";
+import { AssessmentContext } from "../StudentAssessmentContext.jsx";
 import {
   InputLabel,
   FormHelperText,
   FormControl,
   Select,
+  makeStyles,
+  Typography,
+  Grid,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -20,22 +23,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SelectStudent() {
   const classes = useStyles();
-  const [selectedStudent, setSelectedStudent] = useState("");
 
-  const handleChange = (event) => {
-    const name = event.target.value;
-    console.log(name);
-    setSelectedStudent(name);
-  };
+  const { assessedStudent } = useContext(AssessmentContext);
+
+  const [studentSelected, setStudentSelected] = assessedStudent;
 
   return (
     <div>
+      <Grid container alignItems="center">
+        <Grid item>
+          <Typography component="h1" variant="h5">
+            {assessedStudent}
+          </Typography>
+        </Grid>
+      </Grid>
       <FormControl required className={classes.formControl}>
         <InputLabel>Student</InputLabel>
         <Select
           native
-          value={selectedStudent}
-          onChange={handleChange}
+          value={studentSelected}
+          onChange={(e) => {
+            setStudentSelected(e.target.value);
+          }}
           name="Student"
         >
           <option aria-label="None" value="" />

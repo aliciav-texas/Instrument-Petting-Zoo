@@ -1,7 +1,12 @@
-import React from "react";
-import { Box, TextField, Input } from "@mui/material";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
+import { AssessmentContext } from "../StudentAssessmentContext.jsx";
+import { Box, TextField } from "@mui/material";
 export default function StudentFeedback() {
-  const ariaLabel = { "aria-label": "description" };
+  const { writtenInstrumentFeedback } = useContext(AssessmentContext);
+
+  const [writtenFeedback, setWrittenInstrumentFeedback] =
+    writtenInstrumentFeedback;
 
   return (
     <Box
@@ -19,6 +24,9 @@ export default function StudentFeedback() {
         style={{ width: "100%" }}
         rows={4}
         placeholder="Please write feedback on tone production, embouchure and student interest!"
+        onChange={(e) => {
+          setWrittenInstrumentFeedback(e.target.value);
+        }}
       />
     </Box>
   );

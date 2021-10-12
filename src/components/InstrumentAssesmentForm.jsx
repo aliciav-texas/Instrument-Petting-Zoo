@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { StudentAssessmentProvider } from "./StudentAssessmentContext.jsx";
 import SelectStudent from "./AssesmentForm/SelectStudent.jsx";
 import InstrumentList from "./AssesmentForm/InstrumentList.jsx";
 import TesterName from "./AssesmentForm/TesterName.jsx";
@@ -55,11 +57,13 @@ export default function StudentInterestForm() {
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
-            <SelectStudent />
-            <InstrumentList />
-            <TesterName />
-            <InstrumentScore />
-            <StudentFeedback />
+            <StudentAssessmentProvider>
+              <SelectStudent />
+              <InstrumentList />
+              <TesterName />
+              <InstrumentScore />
+              <StudentFeedback />
+            </StudentAssessmentProvider>
             <Button
               type="submit"
               fullWidth

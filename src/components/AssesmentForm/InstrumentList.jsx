@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
+import { AssessmentContext } from "../StudentAssessmentContext.jsx";
 import {
   Radio,
   RadioGroup,
@@ -8,10 +10,22 @@ import {
 } from "@material-ui/core";
 
 export default function InstrumentList() {
+  const { instrumentOfAssesment } = useContext(AssessmentContext);
+
+  const [instrumentAssessed, setInstrumentAssessed] = instrumentOfAssesment;
+
   return (
     <FormControl component="fieldset">
       <FormLabel component="legend">Instrument Tested </FormLabel>
-      <RadioGroup row aria-label="position" name="position" defaultValue="top">
+      <RadioGroup
+        row
+        aria-label="position"
+        name="position"
+        defaultValue="top"
+        onChange={(e) => {
+          setInstrumentAssessed(e.target.value);
+        }}
+      >
         <FormControlLabel
           value="Woodwind"
           control={<Radio color="primary" />}
