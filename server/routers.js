@@ -8,8 +8,8 @@ app.use(cors());
 
 app.get("/students", async (req, res) => {
   try {
-    const listOfStudentNames = db.getListOfStudents();
-    console.log("list", listOfStudentNames);
+    const listOfStudentNames = await db.getListOfStudents();
+    res.send(listOfStudentNames);
   } catch (errorGettingListOfStudents) {
     console.log("error", errorGettingListOfStudents);
   }

@@ -10,13 +10,13 @@ export const StudentAssessmentProvider = (props) => {
   const [instrumentScore, setInstrumentScore] = useState(null);
   const [writtenInstrumentFeedback, setWrittenInstrumentFeedback] =
     useState("");
-  // const [listOfStudentsState, updateListOfStudentsState] = useState[[]];
+  const [listOfStudentsState, updateListOfStudentsState] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:3030/students")
       .then((listOfStudents) => {
-        console.log(listOfStudents);
+        updateListOfStudentsState(listOfStudents.data);
       })
       .catch((errorGettingStudentList) => {
         console.log(errorGettingStudentList);

@@ -4,7 +4,11 @@ const getListOfStudents = async () => {
   try {
     const getListOfStudentNames = "select student_name from student";
     const listOfStudentNames = await pool.query(getListOfStudentNames);
-    return listOfStudentNames;
+    const studentNames = [];
+    listOfStudentNames.rows.forEach((student) => [
+      studentNames.push(student.student_name),
+    ]);
+    return studentNames;
   } catch (errorGettingListOfStudents) {
     return errorGettingListOfStudents;
   }
