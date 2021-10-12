@@ -1,5 +1,5 @@
-import React, { useState, createContext } from "react";
-// import axios from "axios";
+import React, { useState, createContext, useEffect, useRef } from "react";
+import axios from "axios";
 
 export const AssessmentContext = createContext();
 
@@ -10,16 +10,26 @@ export const StudentAssessmentProvider = (props) => {
   const [instrumentScore, setInstrumentScore] = useState(null);
   const [writtenInstrumentFeedback, setWrittenInstrumentFeedback] =
     useState("");
+  // const [listOfStudentsState, updateListOfStudentsState] = useState[[]];
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3030/students")
+      .then((listOfStudents) => {
+        console.log(listOfStudents);
+      })
+      .catch((errorGettingStudentList) => {
+        console.log(errorGettingStudentList);
+      });
+  }, []);
 
   const submitStudentInstrumentAssessment = () => {
-    console.log(
-      "final submit",
-      assessedStudent,
-      instrumentOfAssesment,
-      directorOfAssesment,
-      instrumentScore,
-      writtenInstrumentFeedback
-    );
+    axios.post(`http://localhost:3030/${instrumentOfAssesment}Assessment`, {
+      directorOfAssesment: directorOfAssesment,
+      instrument: instrumentOfAssesment,
+      writtenInstrumentFeedback: writtenInstrumentFeedback,
+      rating: instrumentScore,
+    });
   };
 
   return (

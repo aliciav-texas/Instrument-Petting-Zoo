@@ -14,7 +14,7 @@ export default function SubmitAssessmentButton() {
       sx={{ mt: 3, mb: 2 }}
       onClick={() => submitStudentAssessment()}
     >
-      Submit
+      Submit Assessment
     </Button>
   );
 }
