@@ -40,13 +40,10 @@ export default function FinalStudentTable() {
 
   const [studentFeedback, setStudentFeedback] = finalStudentFeedbackState;
 
-  console.log("sf", studentFeedback);
-
   if (Array.isArray(studentFeedback)) {
     const sortedFeedback = studentFeedback.filter((feedback) => {
       if (feedback) return feedback;
     });
-    console.log("sortedFeedback", sortedFeedback);
     return (
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -59,7 +56,7 @@ export default function FinalStudentTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {studentFeedback.map((instrumentFeedback) => (
+            {sortedFeedback.map((instrumentFeedback) => (
               <StyledTableRow key={instrumentFeedback.instrument}>
                 <StyledTableCell component="th" scope="row">
                   {instrumentFeedback.teacher_name}
@@ -80,6 +77,6 @@ export default function FinalStudentTable() {
       </TableContainer>
     );
   } else {
-    return <h6>loading</h6>;
+    return <h6>Select a student to get started! </h6>;
   }
 }
