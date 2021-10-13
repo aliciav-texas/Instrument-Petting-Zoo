@@ -8,6 +8,7 @@ export const DirectorDataProvider = (props) => {
   const [studentRoster, updateStudentRoster] = useState([]);
   const [listOfStudentsState, updateListOfStudentsState] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState("");
+  const [selectedStudentID, setSelectedStudentID] = useState();
 
   const [finalStudentFeedbackState, setFinalStudentFeedbackState] = useState(
     []
@@ -36,11 +37,23 @@ export const DirectorDataProvider = (props) => {
   }, []);
 
   useEffect(() => {
+    if (selectedStudent) {
+      axios
+        .get(`http://localhost:3030/student/${selectedStudent}/id`)
+        .then((studentID) => {
+          setSelectedStudentID(studentID.data.id);
+        })
+        .catch(() => {});
+    }
+  }, [selectedStudent]);
+
+  useEffect(() => {
     axios
-      .get(`http://localhost:3030/student/${selectedStudent}/feedback`)
-      .then(() => {})
-      .catch(() => {});
-  });
+      .get(`http://localhost:3030/student/${selectedStudentID}/feedback`)
+      .then((studentFeedback) => {
+        setFinalStudentFeedbackState(studentFeedback.data);
+      });
+  }, [selectedStudentID]);
 
   return (
     <DirectorContext.Provider
@@ -51,6 +64,7 @@ export const DirectorDataProvider = (props) => {
         finalStudentFeedbackState: [
           finalStudentFeedbackState,
           setFinalStudentFeedbackState,
+          (selectedStudentID: [selectedStudentID, setSelectedStudentID]),
         ],
       }}
     >

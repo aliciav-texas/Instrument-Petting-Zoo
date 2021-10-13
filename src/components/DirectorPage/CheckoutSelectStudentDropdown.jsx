@@ -24,10 +24,11 @@ const useStyles = makeStyles((theme) => ({
 export default function CheckoutSelectStudentDropdown() {
   const classes = useStyles();
 
-  const { listOfStudentsState, selectedStudentState } =
+  const { listOfStudentsState, selectedStudentState, selectedStudentID } =
     useContext(DirectorContext);
   const [listOfStudents, updateListOfStudents] = listOfStudentsState;
   const [selectedStudent, setSelectedStudent] = selectedStudentState;
+
   return (
     <div>
       <Grid container alignItems="center">

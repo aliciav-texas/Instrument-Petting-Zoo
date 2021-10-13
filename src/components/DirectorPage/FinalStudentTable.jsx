@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { DirectorContext } from "./DirectorContext.jsx";
 import { styled } from "@mui/material/styles";
@@ -35,28 +36,50 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const rows = [{ instrument: "Woodwind", rating: 3, feedback: "no air suport" }];
 
 export default function FinalStudentTable() {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Instrument</StyledTableCell>
-            <StyledTableCell align="right">Rating</StyledTableCell>
-            <StyledTableCell align="right">Feedback</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.instrument}>
-              <StyledTableCell component="th" scope="row">
-                {row.instrument}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.rating}</StyledTableCell>
-              <StyledTableCell align="right">{row.feedback}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+  const { finalStudentFeedbackState } = useContext(DirectorContext);
+
+  const [studentFeedback, setStudentFeedback] = finalStudentFeedbackState;
+
+  console.log("sf", studentFeedback);
+
+  if (Array.isArray(studentFeedback)) {
+    const sortedFeedback = studentFeedback.filter((feedback) => {
+      if (feedback) return feedback;
+    });
+    console.log("sortedFeedback", sortedFeedback);
+    return (
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Teacher Name</StyledTableCell>
+              <StyledTableCell>Instrument</StyledTableCell>
+              <StyledTableCell align="right">Rating</StyledTableCell>
+              <StyledTableCell align="right">Feedback</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {studentFeedback.map((instrumentFeedback) => (
+              <StyledTableRow key={instrumentFeedback.instrument}>
+                <StyledTableCell component="th" scope="row">
+                  {instrumentFeedback.teacher_name}
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row">
+                  {instrumentFeedback.instrument}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {instrumentFeedback.rating}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {instrumentFeedback.feedback}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
+  } else {
+    return <h6>loading</h6>;
+  }
 }

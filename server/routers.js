@@ -25,17 +25,24 @@ app.get("/roster", async (req, res) => {
   }
 });
 
-app.get("/student/:student/feedback", async (req, res) => {
+app.get("/student/:student/id", async (req, res) => {
   try {
     let student = req.params.student;
-    db.getStudentID(student).then((id) => {
-      db.getStudentFeedback(id).then((feedback) => {
-        console.log("feedback", feedback);
-      });
-    });
-
-    res.send(studentID.data);
-  } catch (error) {}
+    const studentID = await db.getStudentID(student);
+    res.send(studentID);
+  } catch (errorGettingID) {
+    res.status(404).send(errorGettingID);
+  }
+});
+app.get("/student/:id/feedback", async (req, res) => {
+  try {
+    let id = req.params.id;
+    const studentFeedback = await db.getStudentFeedback(id);
+    console.log("feedback", studentFeedback);
+    res.send(studentFeedback);
+  } catch (errorGettingID) {
+    res.status(404).send(errorGettingID);
+  }
 });
 
 // ==== Post Student Assessments
