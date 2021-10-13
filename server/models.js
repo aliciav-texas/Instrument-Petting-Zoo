@@ -19,7 +19,7 @@ const postStudentInstrumentAssessment = async (
   assessmentValues
 ) => {
   try {
-    const postStudentInstrumentAssessmentQuery = `INSERT INTO ${instrument}Feedback(teacher_name, instrument, feedback, rating) values ($1, $2, $3, $4)`;
+    const postStudentInstrumentAssessmentQuery = `INSERT INTO ${instrument}Feedback(teacher_name, student_id, instrument, feedback, rating) VALUES ($1, (select id from student where student_name=$2), $3, $4, $5)`;
     const successfulPost = await pool.query(
       postStudentInstrumentAssessmentQuery,
       assessmentValues
