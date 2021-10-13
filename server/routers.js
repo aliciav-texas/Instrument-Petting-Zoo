@@ -6,6 +6,7 @@ const db = require("./models.js");
 app.use(express.json());
 app.use(cors());
 
+// ==== Retrieve Student Data
 app.get("/students", async (req, res) => {
   try {
     const listOfStudentNames = await db.getListOfStudents();
@@ -14,6 +15,17 @@ app.get("/students", async (req, res) => {
     console.log("error", errorGettingListOfStudents);
   }
 });
+
+app.get("/roster", async (req, res) => {
+  try {
+    const studentRoster = await db.getListOfAllRegisteredStudents();
+    res.send(studentRoster);
+  } catch (errorRetrievingStudentRoster) {
+    res.status(404).send(errorRetrievingStudentRoster);
+  }
+});
+
+// ==== Post Student Assessments
 
 app.post("/PercussionAssessment", async (req, res) => {
   try {

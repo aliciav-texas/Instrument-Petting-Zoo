@@ -1,5 +1,10 @@
 import React from "react";
-import StudentRoster from "./StudentRoster.jsx";
+import StudentRosterTable from "./StudentRosterTable.jsx";
+import { DirectorDataProvider } from "./DirectorContext.jsx";
 export default function DirectorMainPage() {
-  return <StudentRoster />;
+  return (
+    <DirectorDataProvider>
+      <StudentRosterTable />
+    </DirectorDataProvider>
+  );
 }

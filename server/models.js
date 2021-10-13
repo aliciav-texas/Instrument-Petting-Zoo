@@ -1,5 +1,6 @@
 const pool = require("../database/index.js");
 
+// === Get
 const getListOfStudents = async () => {
   try {
     const getListOfStudentNames = "select student_name from student";
@@ -11,6 +12,18 @@ const getListOfStudents = async () => {
     return studentNames;
   } catch (errorGettingListOfStudents) {
     return errorGettingListOfStudents;
+  }
+};
+
+const getListOfAllRegisteredStudents = async () => {
+  try {
+    const getListOfAllRegisteredStudentsQuery = "SELECT * FROM student";
+    const registedStudentRoster = await pool.query(
+      getListOfAllRegisteredStudentsQuery
+    );
+    return registedStudentRoster.rows;
+  } catch (errorRetrievingStudentRoster) {
+    return errorRetrievingStudentRoster;
   }
 };
 
@@ -33,4 +46,5 @@ const postStudentInstrumentAssessment = async (
 module.exports = {
   postStudentInstrumentAssessment,
   getListOfStudents,
+  getListOfAllRegisteredStudents,
 };
