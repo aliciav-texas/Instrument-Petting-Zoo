@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, createContext, useEffect, useRef } from "react";
 import axios from "axios";
 
@@ -47,6 +48,7 @@ export const StudentAssessmentProvider = (props) => {
           setWrittenInstrumentFeedback,
         ],
         submitAssessment: [submitStudentInstrumentAssessment],
+        listOfStudentsState: [listOfStudentsState, updateListOfStudentsState],
       }}
     >
       {props.children}

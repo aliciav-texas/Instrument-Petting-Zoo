@@ -24,7 +24,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SelectStudent() {
   const classes = useStyles();
 
-  const { assessedStudent } = useContext(AssessmentContext);
+  const { assessedStudent, listOfStudentsState } =
+    useContext(AssessmentContext);
+  const [listOfStudents, updateListOfStudents] = listOfStudentsState;
 
   const [studentSelected, setStudentSelected] = assessedStudent;
 
@@ -47,10 +49,10 @@ export default function SelectStudent() {
           }}
           name="Student"
         >
-          <option aria-label="None" value="" />
-          <option value={"Sofia"}>Sofia</option>
-          <option value={"Gray"}>Gray</option>
-          <option value={"Anna"}>Anna</option>
+          <option value={""}>{""}</option>
+          {listOfStudents.map((student) => {
+            return <option value={student}>{student}</option>;
+          })}
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
