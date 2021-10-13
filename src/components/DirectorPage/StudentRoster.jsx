@@ -37,7 +37,7 @@ const rows = [
   // { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
 ];
 
-export default function DirectorSignIn() {
+export default function StudentRoster() {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid

@@ -57,7 +57,7 @@ export default function Header() {
                 <Typography> Director </Typography>
               </Grid>
               <Grid item>
-                <Link to="/director-sign-In">
+                <Link to="/director">
                   <MusicNoteOutlinedIcon />
                 </Link>
               </Grid>

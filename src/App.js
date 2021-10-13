@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage.jsx";
 import Footer from "./components/Footer.jsx";
 import InstrumentAssesmentForm from "./components/InstrumentAssesmentForm.jsx";
 import StudentInterestForm from "./components/StudentInterestForm.jsx";
-import DirectorSignIn from "./components/DirectorSignIn.jsx";
+import DirectorMainPage from "./components/DirectorPage/DirectorMainPage.jsx";
 import { Grid, createTheme, ThemeProvider, Container } from "@material-ui/core";
 
 const theme = createTheme({
@@ -40,7 +40,7 @@ export default function App() {
                   path="/instrumentAssesment"
                   component={InstrumentAssesmentForm}
                 />
-                <Route path="/director-sign-in" component={DirectorSignIn} />
+                <Route path="/director" component={DirectorMainPage} />
               </Switch>
             </Router>
             <Footer />
