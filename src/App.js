@@ -6,8 +6,9 @@ import Footer from "./components/Footer.jsx";
 import InstrumentAssesmentForm from "./components/InstrumentAssesmentForm.jsx";
 import StudentInterestForm from "./components/StudentInterestForm.jsx";
 import DirectorMainPage from "./components/DirectorPage/DirectorMainPage.jsx";
+import FinalCheckout from "./components/DirectorPage/FinalCheckout.jsx";
 import { Grid, createTheme, ThemeProvider, Container } from "@material-ui/core";
-
+import { DirectorDataProvider } from "./components/DirectorPage/DirectorContext.jsx";
 const theme = createTheme({
   pallette: {
     primary: {
@@ -40,7 +41,10 @@ export default function App() {
                   path="/instrumentAssesment"
                   component={InstrumentAssesmentForm}
                 />
-                <Route path="/director" component={DirectorMainPage} />
+                <DirectorDataProvider>
+                  <Route path="/director" component={DirectorMainPage} />
+                  <Route path="/finalCheckout" component={FinalCheckout} />
+                </DirectorDataProvider>
               </Switch>
             </Router>
             <Footer />

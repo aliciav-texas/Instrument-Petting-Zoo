@@ -25,6 +25,19 @@ app.get("/roster", async (req, res) => {
   }
 });
 
+app.get("/student/:student/feedback", async (req, res) => {
+  try {
+    let student = req.params.student;
+    db.getStudentID(student).then((id) => {
+      db.getStudentFeedback(id).then((feedback) => {
+        console.log("feedback", feedback);
+      });
+    });
+
+    res.send(studentID.data);
+  } catch (error) {}
+});
+
 // ==== Post Student Assessments
 
 app.post("/PercussionAssessment", async (req, res) => {

@@ -2,6 +2,7 @@
 import React, { useContext, useEffect } from "react";
 import { DirectorContext } from "./DirectorContext.jsx";
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
 //Material-UI
 import { Typography } from "@mui/material";
 
@@ -37,7 +38,11 @@ import { Typography } from "@mui/material";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "student_name", headerName: "Student Name", width: 150 },
+  {
+    field: "student_name",
+    headerName: "Student Name",
+    width: 150,
+  },
   { field: "parent_name", headerName: "Parent name", width: 150 },
   {
     field: "parent_email",
@@ -47,7 +52,7 @@ const columns = [
   {
     field: "piano_experience",
     headerName: "Piano",
-    width: 90,
+    width: 150,
   },
   { field: "instrument_interest", headerName: "Interest", width: 150 },
 ];
@@ -55,15 +60,7 @@ const columns = [
 export default function StudentRoster() {
   const { studentRoster } = useContext(DirectorContext);
   const [studentRosterList, updateStudentRosterList] = studentRoster;
-  console.log("roster", studentRosterList);
 
-  // useEffect(() => {
-  //   console.log("student", studentRosterList);
-  // }, [studentRosterList]);
-
-  // if (!studentRosterList) {
-  //   return <Typography>Loading</Typography>;
-  // } else {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
