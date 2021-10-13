@@ -38,7 +38,6 @@ app.get("/student/:id/feedback", async (req, res) => {
   try {
     let id = req.params.id;
     const studentFeedback = await db.getStudentFeedback(id);
-    console.log("feedback", studentFeedback);
     res.send(studentFeedback);
   } catch (errorGettingID) {
     res.status(404).send(errorGettingID);

@@ -12,6 +12,7 @@ CREATE TABLE student (
     piano_experience boolean,
     instrument_interest varchar(30),
     additionalExperience varchar(2500),
+    finalInstrument varchar(30),
     PRIMARY KEY (id)
 );
 
@@ -76,12 +77,12 @@ CREATE TABLE finalInstrumentRoster (
 CREATE INDEX student_name ON finalInstrumentRoster(student_name);
 CREATE INDEX instrument_index ON finalInstrumentRoster(instrument);
 
-insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience) values ('Kristin G', 'Papa
-G', 'aliciav.texas@gmail.com', true, 'percussion', 'none');
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Kristin G', 'Papa
+G', 'aliciav.texas@gmail.com', true, 'percussion', 'none', 'not selected');
 
-insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience) values ('Blake H', 'Mama
-S', 'aliciav.texas@gmail.com', false, 'percussion', 'none');
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Blake H', 'Mama
+S', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
 
-insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience) values ('Matt S', 'Granny
-S', 'aliciav.texas@gmail.com', false, 'percussion', 'none');
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Matt S', 'Granny
+S', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
 

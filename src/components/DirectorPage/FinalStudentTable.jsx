@@ -33,8 +33,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const rows = [{ instrument: "Woodwind", rating: 3, feedback: "no air suport" }];
-
 export default function FinalStudentTable() {
   const { finalStudentFeedbackState } = useContext(DirectorContext);
 

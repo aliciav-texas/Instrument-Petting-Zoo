@@ -14,6 +14,8 @@ export const DirectorDataProvider = (props) => {
     []
   );
 
+  const [finalInstrumentSelection, setFinalInstrumentSelection] = useState("");
+
   useEffect(() => {
     axios
       .get("http://localhost:3030/roster")
@@ -64,7 +66,11 @@ export const DirectorDataProvider = (props) => {
         finalStudentFeedbackState: [
           finalStudentFeedbackState,
           setFinalStudentFeedbackState,
-          (selectedStudentID: [selectedStudentID, setSelectedStudentID]),
+        ],
+        selectedStudentID: [selectedStudentID, setSelectedStudentID],
+        finalInstrumentSelection: [
+          finalInstrumentSelection,
+          setFinalInstrumentSelection,
         ],
       }}
     >

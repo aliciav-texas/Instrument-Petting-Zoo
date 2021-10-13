@@ -6,36 +6,6 @@ import { Link } from "react-router-dom";
 //Material-UI
 import { Typography } from "@mui/material";
 
-// For future use
-// const columns = [
-//   { field: "id", headerName: "ID", width: 70 },
-//   { field: "firstName", headerName: "First name", width: 150 },
-//   { field: "lastName", headerName: "Last name", width: 150 },
-//   {
-//     field: "fullName",
-//     headerName: "Full name",
-//     description: "This column has a value getter and is not sortable.",
-//     sortable: false,
-//     width: 160,
-//     valueGetter: (params) =>
-//       `${params.getValue(params.id, "firstName") || ""} ${
-//         params.getValue(params.id, "lastName") || ""
-//       }`,
-//   },
-//   {
-//     field: "email",
-//     headerName: "Email",
-//     width: 120,
-//   },
-//   {
-//     field: "piano",
-//     headerName: "Piano",
-//     width: 90,
-//   },
-//   { field: "parent", headerName: "Parent", width: 150 },
-//   { field: "final", headerName: "Final Instrument", width: 150 },
-// ];
-
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   {
@@ -55,12 +25,13 @@ const columns = [
     width: 150,
   },
   { field: "instrument_interest", headerName: "Interest", width: 150 },
+  { field: "finalinstrument", headerName: "Final Instrument", width: 200 },
 ];
 
 export default function StudentRoster() {
   const { studentRoster } = useContext(DirectorContext);
   const [studentRosterList, updateStudentRosterList] = studentRoster;
-
+  console.log(studentRoster);
   return (
     <div style={{ height: 400, width: "100%" }}>
       <DataGrid
