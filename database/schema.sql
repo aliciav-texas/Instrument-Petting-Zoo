@@ -88,3 +88,21 @@ S', 'aliciav.texas@gmail.com', false, 'brass', 'none', 'not selected');
 
 insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Scribbles', 'Alicia V', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
 
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Ben K', 'Dad K', 'aliciav.texas@gmail.com', true, 'percussion', 'played recorder', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Cory E', 'Mom E', 'aliciav.texas@gmail.com', false, 'brass', 'none', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Johnathan B', 'Grandpa B', 'aliciav.texas@gmail.com', true, 'percussion', 'none', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Rob W', 'Mother W', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Travis M', 'Father M', 'aliciav.texas@gmail.com', false, 'woodwind', 'none', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Will F', 'Mother F', 'aliciav.texas@gmail.com', false, 'woodwind', 'owns a drumset', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Bekah H', 'Granny H', 'aliciav.texas@gmail.com', true, 'woodwind', '10 year piano player', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Maria K', 'Kim K', 'aliciav.texas@gmail.com', true, 'brass', 'drum corps', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Pingping X', 'Mother X', 'aliciav.texas@gmail.com', true, 'percussion', 'once watched the movie drumline', 'not selected');

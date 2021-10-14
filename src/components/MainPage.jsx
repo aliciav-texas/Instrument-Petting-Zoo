@@ -22,7 +22,7 @@ export default function MainPage() {
             url="https://www.youtube.com/watch?v=u0TcmfEVhfw"
           />
         </Grid>
-        <Grid item>
+        <Grid item direction="column" align="center">
           <Typography variant="h4">
             We are excited to have you join our band family!{" "}
           </Typography>
