@@ -81,8 +81,10 @@ insert into student(student_name, parent_name, parent_email, piano_experience, i
 G', 'aliciav.texas@gmail.com', true, 'percussion', 'none', 'not selected');
 
 insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Blake H', 'Mama
-S', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
+S', 'aliciav.texas@gmail.com', false, 'brass', 'none', 'not selected');
 
 insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Matt S', 'Granny
-S', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
+S', 'aliciav.texas@gmail.com', false, 'brass', 'none', 'not selected');
+
+insert into student(student_name, parent_name, parent_email, piano_experience, instrument_interest, additionalExperience, finalInstrument) values ('Scribbles', 'Alicia V', 'aliciav.texas@gmail.com', false, 'percussion', 'none', 'not selected');
 

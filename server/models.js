@@ -78,10 +78,25 @@ const postStudentInstrumentAssessment = async (
   }
 };
 
+const updateFinalInstrument = async (id, instrument) => {
+  try {
+    const updateFinalInstrumentQuery =
+      "UPDATE student SET finalInstrument = $1 where id = $2";
+    const setFinalInstrument = pool.query(updateFinalInstrumentQuery, [
+      instrument,
+      id,
+    ]);
+    return setFinalInstrument;
+  } catch (errorSettingFinalInstrument) {
+    return errorSettingFinalInstrument;
+  }
+};
+
 module.exports = {
   postStudentInstrumentAssessment,
   getListOfStudents,
   getListOfAllRegisteredStudents,
   getStudentID,
   getStudentFeedback,
+  updateFinalInstrument,
 };

@@ -6,6 +6,18 @@ const db = require("./models.js");
 app.use(express.json());
 app.use(cors());
 
+// === Final Instrument
+app.put("/:id/:instrument/final", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const instrument = req.params.instrument;
+    const updatedFinalInstrument = db.updateFinalInstrument(id, instrument);
+    res.send(updatedFinalInstrument);
+  } catch (errorUpdatingFinalInstrument) {
+    res.status(400).send(errorUpdatingFinalInstrument);
+  }
+});
+
 // ==== Retrieve Student Data
 app.get("/students", async (req, res) => {
   try {

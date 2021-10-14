@@ -31,16 +31,38 @@ const columns = [
 export default function StudentRoster() {
   const { studentRoster } = useContext(DirectorContext);
   const [studentRosterList, updateStudentRosterList] = studentRoster;
-  console.log(studentRoster);
+
+  let rosterToMap = studentRosterList;
+
+  // useEffect(() => {
+  //   return (
+  //     <>
+  //       <h3>Student Roster</h3>
+  //       <div style={{ height: 400, width: "100%" }}>
+  //         <DataGrid
+  //           rows={studentRosterList}
+  //           columns={columns}
+  //           pageSize={8}
+  //           rowsPerPageOptions={[5]}
+  //           checkboxSelection
+  //         />
+  //       </div>
+  //     </>
+  //   );
+  // }, [studentRosterList]);
+
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={studentRosterList}
-        columns={columns}
-        pageSize={8}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <h3>Student Roster</h3>
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={studentRosterList}
+          columns={columns}
+          pageSize={8}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+        />
+      </div>
+    </>
   );
 }

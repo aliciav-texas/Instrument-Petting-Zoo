@@ -9,12 +9,27 @@ export const DirectorDataProvider = (props) => {
   const [listOfStudentsState, updateListOfStudentsState] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState("");
   const [selectedStudentID, setSelectedStudentID] = useState();
-
   const [finalStudentFeedbackState, setFinalStudentFeedbackState] = useState(
     []
   );
-
   const [finalInstrumentSelection, setFinalInstrumentSelection] = useState("");
+
+  const submitFinalInstrumentSelection = () => {
+    axios.put(
+      `http://localhost:3030/${selectedStudentID}/${finalInstrumentSelection}/final`
+    );
+  };
+
+  const getUpdatedRoster = () => {
+    axios
+      .get("http://localhost:3030/roster")
+      .then((studentRoster) => {
+        updateStudentRoster(studentRoster.data);
+      })
+      .catch((errorGettingStudentList) => {
+        console.log(errorGettingStudentList);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -72,6 +87,8 @@ export const DirectorDataProvider = (props) => {
           finalInstrumentSelection,
           setFinalInstrumentSelection,
         ],
+        submitInstrument: [submitFinalInstrumentSelection],
+        updateRoster: [getUpdatedRoster],
       }}
     >
       {props.children}
