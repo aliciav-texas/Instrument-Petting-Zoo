@@ -28,6 +28,9 @@ export default function Footer(props) {
           align="center"
           color="text.secondary"
           component="p"
+          onClick={() => {
+            console.log("click");
+          }}
         >
           Welcome to the band family!
         </Typography>

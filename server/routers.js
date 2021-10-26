@@ -2,9 +2,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const db = require("./models.js");
+const axios = require("axios");
 
 app.use(express.json());
 app.use(cors());
+
+app.get("/test", async (req, res) => {
+  try {
+    axios
+      .get(
+        "https://en.wikipedia.org/w/api.php?format=json&action=parse&prop=text&section=1&diabletoc=1&redirects=1&page=bulldog"
+      )
+      .then((response) => {
+        console.log("res", response.data.parse.text["*"]);
+      });
+  } catch (error) {}
+});
 
 // === Final Instrument
 app.put("/:id/:instrument/final", async (req, res) => {

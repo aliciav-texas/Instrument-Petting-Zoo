@@ -25,13 +25,15 @@ export const StudentAssessmentProvider = (props) => {
   }, []);
 
   const submitStudentInstrumentAssessment = () => {
-    axios.post(`http://localhost:3030/${instrumentOfAssesment}Assessment`, {
-      directorOfAssesment: directorOfAssesment,
-      student: assessedStudent,
-      instrument: instrumentOfAssesment,
-      writtenInstrumentFeedback: writtenInstrumentFeedback,
-      rating: instrumentScore,
-    });
+    // axios.post(`http://localhost:3030/${instrumentOfAssesment}Assessment`, {
+    //   directorOfAssesment: directorOfAssesment,
+    //   student: assessedStudent,
+    //   instrument: instrumentOfAssesment,
+    //   writtenInstrumentFeedback: writtenInstrumentFeedback,
+    //   rating: instrumentScore,
+    // });
+
+    console.log("click");
   };
 
   return (
