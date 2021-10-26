@@ -135,7 +135,7 @@ This is an example of how to list things you need to use the software and how to
 
 <br>
 <div align="center">
-<img src="READMEimages/Router.gif" width="400" height="auto" alt="Page Navigation"/>
+<img src="READMEimages/Router.gif" width="600" height="auto" alt="Page Navigation"/>
 </div><br><br>
 
 React Router was implemented to create a seamless UI experience for families, assessors and directors. This implementation also granted time for async Database information to be returned and to populate the fields in the director page. <br><br>
@@ -155,7 +155,7 @@ Future features of this module include:
 <br>
 
 <div align="center">
-<img src="READMEimages/Assesment.gif" width="400" height="auto" alt="Shows Related Product features"/>
+<img src="READMEimages/Assesment.gif" width="600" height="auto" alt="Shows Related Product features"/>
 </div><br><br>
 
 <br>
@@ -171,7 +171,7 @@ This page provides anonymity and comfort for the assessor to submit clear and di
 <br><br>
 
 <div align="center">
-<img src="READMEimages/Director.gif" width="400" height="auto" alt="Director Page"/>
+<img src="READMEimages/Director.gif" width="600" height="auto" alt="Director Page"/>
 </div><br><br>
 
 > ## Director Page
