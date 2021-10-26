@@ -2,7 +2,7 @@
 
 <br />
 
-<h2 align="center"> Modernized Assessment and Program Management tools for the hard working Band Director </h2>
+<h2 align="center"> Modernized Assessment and Program Management tools for the hard working band birector </h2>
 <br>
 
 <!-- TABLE OF CONTENTS -->
